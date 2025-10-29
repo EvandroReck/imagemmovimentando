@@ -13,7 +13,6 @@
     overflow-x: hidden;
   }
 
-  /* ==== CABEÇALHO ==== */
   header {
     position: fixed;
     top: 0; left: 0;
@@ -44,7 +43,6 @@
     text-shadow: 0 0 10px #9f0;
   }
 
-  /* ==== BANNER ==== */
   .banner {
     margin-top: 90px;
     height: 300px;
@@ -62,7 +60,6 @@
     100% { background-position: 100% 50%; }
   }
 
-  /* ==== GALERIA ==== */
   .galeria {
     text-align: center;
     padding: 50px 20px;
@@ -71,128 +68,33 @@
     color: #0ff;
     text-shadow: 0 0 15px #0ff;
   }
-  .jogos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-  }
   iframe {
     border: 2px solid #0ff;
     border-radius: 10px;
     box-shadow: 0 0 20px #09f;
-    width: 300px;
-    height: 400px;
+    width: 400px;
+    height: 600px;
   }
 
-  /* ==== BOTÃO ESPECIAL ==== */
-  .botao-especial {
-    display: block;
-    margin: 40px auto;
-    background: linear-gradient(90deg, #0ff, #09f);
-    color: #000;
-    border: none;
-    padding: 15px 40px;
-    font-size: 1.2em;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 20px #0ff;
-  }
-  .botao-especial:hover {
-    background: linear-gradient(90deg, #9f0, #0ff);
-    box-shadow: 0 0 30px #9f0;
+  /* ==== IMAGEM QUE QUICA ==== */
+  #imagem-quicando {
+    display: none;
+    position: absolute;
+    width: 120px;
+    height: auto;
+    top: 100px;
+    left: 100px;
+    z-index: 2000;
+    filter: drop-shadow(0 0 20px #0ff);
   }
 
-  /* ==== RANKING ==== */
-  .ranking {
-    padding: 50px;
-    background: rgba(255,255,255,0.05);
-    border-top: 2px solid #0ff;
-    border-bottom: 2px solid #0ff;
-  }
-  .ranking h2 {
-    text-align: center;
-    color: #0ff;
-    margin-bottom: 20px;
-  }
-  .player {
-    display: flex;
-    align-items: center;
-    margin: 10px auto;
-    background: rgba(0,0,0,0.5);
-    width: 300px;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 10px #09f;
-  }
-  .player img {
-    width: 50px; height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-
-  /* ==== LOGIN ==== */
-  .login {
-    text-align: center;
-    padding: 50px;
-  }
-  .login input {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
-  }
-  .login button {
-    background: #0ff;
-    border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .login button:hover {
-    background: #09f;
-    box-shadow: 0 0 15px #0ff;
-  }
-
-  /* ==== RODAPÉ ==== */
   footer {
     background: #000;
     text-align: center;
     padding: 20px;
     border-top: 2px solid #0ff;
     box-shadow: 0 0 20px #0ff;
-  }
-
-  /* ==== TELA DA IMAGEM ==== */
-  .tela-imagem {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(circle, #000, #020b20);
-    overflow: hidden;
-    z-index: 2000;
-  }
-  .tela-imagem img {
-    position: absolute;
-    width: 120px;
-    filter: drop-shadow(0 0 20px #0ff);
-  }
-  .btn-voltar {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: #0ff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
+    margin-top: 50px;
   }
 </style>
 </head>
@@ -204,8 +106,6 @@
     <a href="#">Início</a>
     <a href="#jogos">Jogos</a>
     <a href="#ranking">Ranking</a>
-    <a href="#comunidade">Comunidade</a>
-    <a href="#contato">Contato</a>
   </nav>
 </header>
 
@@ -214,66 +114,29 @@
 </section>
 
 <section id="jogos" class="galeria">
-  <h2>🎯 Jogos Populares</h2>
-  <div class="jogos">
-    <iframe src="https://tbot.xyz/lumber/" title="Tetris"></iframe>
-    <iframe src="https://chromedino.com/" title="Dino Game"></iframe>
-    <iframe src="https://pacman.platzh1.com/" title="Pac-Man"></iframe>
-  </div>
+  <h2>🪓 Jogue Lumberjack!</h2>
+  <p>Use as setas ⬅️➡️ para jogar. Se ficar 7 segundos parado... algo estranho acontece 😈</p>
 
-  <!-- BOTÃO PARA A TELA DA IMAGEM -->
-  <button class="botao-especial" onclick="abrirTelaImagem()">🌀 Ver Imagem se Movendo!</button>
-</section>
+  <iframe id="lumberjack" src="https://tbot.xyz/lumber/"></iframe>
 
-<section id="ranking" class="ranking">
-  <h2>🏆 Top Jogadores</h2>
-  <div class="player"><img src="https://i.pravatar.cc/50?u=1"><span>LucasPro - 9999 pts</span></div>
-  <div class="player"><img src="https://i.pravatar.cc/50?u=2"><span>AnaGamer - 9500 pts</span></div>
-  <div class="player"><img src="https://i.pravatar.cc/50?u=3"><span>NeoX - 9400 pts</span></div>
-</section>
-
-<section class="login">
-  <h2>💫 Faça Login e Entre no Jogo</h2>
-  <input type="text" placeholder="Usuário"><br>
-  <input type="password" placeholder="Senha"><br>
-  <button onclick="somClick()">Entrar</button>
+  <!-- IMAGEM QUE VAI QUICAR -->
+  <img id="imagem-quicando" src="https://media.giphy.com/media/l0MYC0LajbaPoEADu/giphy.gif" alt="Imagem se movendo">
 </section>
 
 <footer>
   <p>© 2025 GameVerse | Desenvolvido com 💜 e Neon</p>
-  <p>
-    <a href="#">Instagram</a> | 
-    <a href="#">Discord</a> | 
-    <a href="#">Termos</a>
-  </p>
 </footer>
 
-<!-- ==== TELA DA IMAGEM EM MOVIMENTO ==== -->
-<div class="tela-imagem" id="telaImagem">
-  <button class="btn-voltar" onclick="fecharTelaImagem()">⬅ Voltar</button>
-  <img id="imgMovendo">
-</div>
-
 <script>
-  // === SOM DE CLIQUE ===
-  const audio = new Audio("https://www.fesliyanstudios.com/play-mp3/387");
-  function somClick() {
-    audio.currentTime = 0;
-    audio.play();
-    alert("🎮 Bem-vindo ao GameVerse!");
-  }
-
-  // === TELA COM IMAGEM EM MOVIMENTO ===
-  const tela = document.getElementById("telaImagem");
-  const img = document.getElementById("imgMovendo");
-
-  // 🔹 TROQUE AQUI O LINK DA IMAGEM 👇
-  img.src = "https://media.giphy.com/media/l0MYC0LajbaPoEADu/giphy.gif";
+  const img = document.getElementById("imagem-quicando");
 
   let x = 100, y = 100;
   let dx = 3, dy = 2;
-  let intervalo;
+  let intervaloMovimento;
+  let inativo = false;
+  let tempoInatividade;
 
+  // Função que faz a imagem se mover e quicar na tela
   function moverImagem() {
     x += dx;
     y += dy;
@@ -283,15 +146,31 @@
     img.style.top = y + "px";
   }
 
-  function abrirTelaImagem() {
-    tela.style.display = "block";
-    intervalo = setInterval(moverImagem, 10);
+  // Mostrar imagem se ficar parado
+  function mostrarImagem() {
+    img.style.display = "block";
+    if (!intervaloMovimento) intervaloMovimento = setInterval(moverImagem, 10);
   }
 
-  function fecharTelaImagem() {
-    tela.style.display = "none";
-    clearInterval(intervalo);
+  // Esconder imagem quando jogar de novo
+  function esconderImagem() {
+    img.style.display = "none";
+    clearInterval(intervaloMovimento);
+    intervaloMovimento = null;
   }
+
+  // Detecta teclas pressionadas (setas)
+  window.addEventListener("keydown", (e) => {
+    if (["ArrowLeft", "ArrowRight"].includes(e.key)) {
+      esconderImagem();
+      clearTimeout(tempoInatividade);
+      tempoInatividade = setTimeout(mostrarImagem, 7000); // 7 segundos
+    }
+  });
+
+  // Se o jogador não fizer nada logo que o jogo começa
+  tempoInatividade = setTimeout(mostrarImagem, 7000);
 </script>
+
 </body>
 </html>
